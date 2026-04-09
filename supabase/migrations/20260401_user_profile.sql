@@ -1,0 +1,6 @@
+CREATE TABLE IF NOT EXISTS user_profile (
+  id INTEGER PRIMARY KEY DEFAULT 1 CHECK (id = 1),
+  notes TEXT NOT NULL DEFAULT '',
+  updated_at TIMESTAMPTZ DEFAULT now()
+);
+INSERT INTO user_profile (id, notes) VALUES (1, '') ON CONFLICT DO NOTHING;
